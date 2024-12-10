@@ -1,6 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Code, Briefcase, GraduationCap, Award, Folder, Mail, Github, Linkedin, Car, Flag, School, Building2 } from 'lucide-react';
+import rafikImage from './rafik.JPG';
 
 const ModelViewer = lazy(() => import('./components/ModelViewer'));
 
@@ -123,7 +124,7 @@ const ProfilePicture = () => (
     transition={{ duration: 0.5 }}
   >
     <img
-      src="rafik.jpg"
+      src={rafikImage}
       alt="Rafik Manla Hassan"
       className="w-full h-full object-cover"
     />
@@ -279,7 +280,7 @@ function App() {
           </div>
         </Section>
 
-        <Section title="3D Model Showcase">
+        {/* <Section title="3D Model Showcase">
           <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
             <h3 className="text-lg font-semibold text-blue-300 mb-4">Interactive 3D Model</h3>
             <Suspense fallback={<div>Loading 3D model...</div>}>
@@ -289,7 +290,7 @@ function App() {
               This is an interactive 3D model created using Meshy. You can rotate and zoom the model using your mouse or touch gestures.
             </p>
           </div>
-        </Section>
+        </Section> */}
 
         <Section title="Education">
           <Card 

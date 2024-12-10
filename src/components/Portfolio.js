@@ -1,6 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Car, Flag, School, Building2, Mail, Github, Linkedin } from 'lucide-react';
+import rafikImage from './rafik.JPG';
 
 const ModelViewer = lazy(() => import('./ModelViewer'));
 
@@ -101,7 +102,7 @@ const ProfilePicture = () => (
     transition={{ duration: 0.5 }}
   >
     <img
-      src="rafik.jpg"
+      src={rafikImage}
       alt="Rafik Manla Hassan"
       className="w-full h-full object-cover"
     />
