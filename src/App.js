@@ -185,7 +185,8 @@ function App() {
       { name: "Next.js", level: "Advanced" },
       { name: "Flask", level: "Intermediate" },
       { name: "Angular", level: "Intermediate" },
-      { name: "AWS", level: "AWS Solutions Architect" }
+      { name: "MS Power Platforms", level: "Intermediate" },
+      { name: "AWS Solutions Architect", level: "AWS Solutions Architect" }
     ]
   };
 
