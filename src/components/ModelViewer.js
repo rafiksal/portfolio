@@ -1,23 +1,25 @@
-import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Environment, useGLTF } from '@react-three/drei';
 
-function Model({ url }) {
-  const { scene } = useGLTF(url)
-  return <primitive object={scene} />
-}
+const ModelViewer = ({ modelUrl }) => {
+  const Model = () => {
+    const { scene } = useGLTF(modelUrl); // Load the GLB model
+    return <primitive object={scene} />;
+  };
 
-export default function ModelViewer({ modelUrl }) {
   return (
-    <div className="w-full h-[400px]">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-        <Suspense fallback={null}>
-          <Model url={modelUrl} />
-          <Environment preset="studio" />
-        </Suspense>
-        <OrbitControls autoRotate />
-      </Canvas>
-    </div>
-  )
-}
+    <Canvas camera={{ position: [0, 0, 5] }}>
+      {/* Add controls for interaction */}
+      <OrbitControls />
+      {/* Lighting and environment */}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <Environment preset="sunset" />
+      {/* Render the model */}
+      <Model />
+    </Canvas>
+  );
+};
 
+export default ModelViewer;

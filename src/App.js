@@ -1,8 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Code, Briefcase, GraduationCap, Award, Folder, Mail, Github, Linkedin, Car, Flag, School, Building2 } from 'lucide-react';
+import { ChevronDown, Code, Briefcase, GraduationCap, Award, Folder, Mail, Github, Linkedin, Car, Flag, School, Building2, Brain, Book, Landmark} from 'lucide-react';
 import rafikImage from './rafik.JPG';
-
 const ModelViewer = lazy(() => import('./components/ModelViewer'));
 
 const Section = ({ children, title, className = '' }) => (
@@ -27,12 +26,12 @@ const Section = ({ children, title, className = '' }) => (
   </motion.section>
 );
 
-const Card = ({ icon: Icon, title, subtitle, description, details = [] }) => {
+const Card = ({ icon: Icon, title, subtitle, description, details = [], url }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.div
-      className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm cursor-pointer"
+      className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm relative"
       whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' }}
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
@@ -42,19 +41,42 @@ const Card = ({ icon: Icon, title, subtitle, description, details = [] }) => {
       <div className="flex items-center mb-2">
         <Icon className="text-blue-400 mr-2" size={24} />
         <h3 className="text-lg font-semibold text-blue-300">{title}</h3>
+        <div className="ml-auto text-blue-300">
+          <AnimatePresence mode="wait">
+            {isExpanded ? (
+              <motion.div
+                key="chevron-up"
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 180 }}
+                exit={{ rotate: 0 }}
+              >
+                <ChevronDown className="transform rotate-180" size={20} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="chevron-down"
+                initial={{ rotate: 180 }}
+                animate={{ rotate: 0 }}
+                exit={{ rotate: 180 }}
+              >
+                <ChevronDown size={20} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
       <p className="text-gray-400 text-sm mb-2">{subtitle}</p>
       <p className="text-gray-300 text-sm">{description}</p>
       
       <AnimatePresence>
-        {isExpanded && details.length > 0 && (
+        {isExpanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             className="mt-4 space-y-2"
           >
-            {details.map((detail, index) => (
+            {details.length > 0 && details.map((detail, index) => (
               <motion.p
                 key={index}
                 className="text-gray-300 text-sm pl-4 border-l-2 border-blue-500"
@@ -65,6 +87,22 @@ const Card = ({ icon: Icon, title, subtitle, description, details = [] }) => {
                 • {detail}
               </motion.p>
             ))}
+            
+            {url && (
+              <motion.a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-4 text-center bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => e.stopPropagation()} 
+              >
+                Visit Project
+              </motion.a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -118,7 +156,7 @@ const SocialLink = ({ icon: Icon, href }) => (
 
 const ProfilePicture = () => (
   <motion.div
-    className="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg"
+    className="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 0.5 }}
@@ -169,8 +207,8 @@ function App() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <SocialLink icon={Github} href="https://github.com/rafikmanla" />
-            <SocialLink icon={Linkedin} href="https://linkedin.com/in/rafikmanla" />
+            <SocialLink icon={Github} href="https://github.com/rafiksalam" />
+            <SocialLink icon={Linkedin} href="https://www.linkedin.com/in/manlahar/" />
           </motion.div>
         </header>
 
@@ -217,8 +255,8 @@ function App() {
           <div className="grid grid-cols-1 gap-6">
             <Card 
               icon={Building2}
-              title="Software Engineering Intern"
-              subtitle="Ministry of Transportation of Ontario (MTO) | May 2023 - Sept 2024"
+              title="Ministry of Transportation of Ontario (MTO)"
+              subtitle="Software Engineering Intern | May 2023 - Sept 2024"
               description="Developed automation solutions and managed highway technology systems"
               details={[
                 "Developed Python automation scripts using Pandas, increasing efficiency by 40%",
@@ -227,25 +265,25 @@ function App() {
               ]}
             />
             <Card 
-              icon={Code}
-              title="Freelance Web Developer"
-              subtitle="Self-Employed | Sept 2021 - Present"
-              description="Full-stack web development for various clients"
-              details={[
-                "Developed responsive website for Islamic preschool using Next.js and React",
-                "Integrated AWS for secure student registration",
-                "Collaborated with administrators to enhance site features and performance"
-              ]}
-            />
-            <Card 
-              icon={Building2}
-              title="Information Security Coordinator"
-              subtitle="CIBC | May 2022 - Sept 2022"
+              icon={Landmark}
+              title="CIBC"
+              subtitle="Information Security Coordinator | May 2022 - Sept 2022"
               description="Managed security assessments and risk analysis"
               details={[
                 "Worked on deviation cases for deals over $500,000",
                 "Performed security assessments and risk analysis",
                 "Handled 50+ security deviation cases for CIBC's clientele"
+              ]}
+            />
+            <Card 
+              icon={Code}
+              title="Raf's Solutions"
+              subtitle="Freelance Web Developer | Sept 2021 - Present"
+              description="Full-stack web development for various clients"
+              details={[
+                "Developed responsive website for Islamic preschool using Next.js and React",
+                "Integrated AWS for secure student registration",
+                "Collaborated with administrators to enhance site features and performance"
               ]}
             />
           </div>
@@ -277,6 +315,18 @@ function App() {
                 "Real-time race data integration and predictions",
               ]}
             />
+            <Card
+              icon={Book}
+              title="Jana Academy"
+              subtitle="Freelance Project | Feb 2024 - Present"
+              description="Responsive website for an Islamic school emphasizing academic excellence."
+              url="https://janaacademy.ca"
+              details={[
+                "Built with HTML5 and CSS3",
+                "Multilingual support for Arabic and English",
+                "Optimized for responsiveness and user engagement",
+              ]}
+            />
           </div>
         </Section>
 
@@ -284,7 +334,7 @@ function App() {
           <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
             <h3 className="text-lg font-semibold text-blue-300 mb-4">Interactive 3D Model</h3>
             <Suspense fallback={<div>Loading 3D model...</div>}>
-              <ModelViewer modelUrl="/my-3d-model.glb" />
+              <ModelViewer modelUrl="rafik3d.glb" />
             </Suspense>
             <p className="mt-4 text-gray-300 text-sm">
               This is an interactive 3D model created using Meshy. You can rotate and zoom the model using your mouse or touch gestures.
@@ -336,6 +386,7 @@ function App() {
   );
   
 }
+
 
 export default App;
 
