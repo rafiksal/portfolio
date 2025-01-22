@@ -60,7 +60,7 @@ const Card = ({ icon: Icon, title, subtitle, description, details = [], url }) =
                 exit={{ rotate: 180 }}
               >
                 <ChevronDown size={20} />
-              </motion.div>
+              </motion.div> 
             )}
           </AnimatePresence>
         </div>
@@ -175,20 +175,32 @@ function App() {
       { name: "Java", level: "Advanced" },
       { name: "Python", level: "Advanced" },
       { name: "JavaScript", level: "Advanced" },
-      { name: "HTML/CSS", level: "Advanced" },
-      { name: "C/C++", level: "Intermediate" },
+      { name: "TypeScript", level: "Intermediate" },
+      { name: "C++", level: "Intermediate" },
       { name: "SQL", level: "Intermediate" }
     ],
     "Frameworks & Technologies": [
       { name: "React.js", level: "Advanced" },
-      { name: "Node.js", level: "Advanced" },
-      { name: "Next.js", level: "Advanced" },
-      { name: "Flask", level: "Intermediate" },
       { name: "Angular", level: "Intermediate" },
-      { name: "MS Power Platforms", level: "Intermediate" },
-      { name: "AWS Solutions Architect", level: "AWS Solutions Architect" }
+      { name: "Spring Framework", level: "Intermediate" },
+      { name: "Next.js", level: "Intermediate" },
+      { name: "AWS", level: "Intermediate" },
+      { name: "Flask", level: "Intermediate" },
+      { name: "Tailwind CSS", level: "Intermediate" },
+      { name: "Node.js", level: "Intermediate" }
+    ],
+    "Tools": [
+      { name: "GitHub", level: "Advanced" },
+      { name: "Power Platforms", level: "Advanced" },
+      { name: "Agile Development", level: "Advanced" },
+      { name: "SDLC", level: "Advanced" },
+      { name: "Software Testing", level: "Intermediate" }
+    ],
+    "Certifications": [
+      { name: "AWS Solutions Architect", level: "Certified" }
     ]
   };
+  
 
   return (
     <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white min-h-screen">
@@ -258,33 +270,33 @@ function App() {
               icon={Building2}
               title="Ministry of Transportation of Ontario (MTO)"
               subtitle="Software Engineering Intern | May 2023 - Sept 2024"
-              description="Developed automation solutions and managed highway technology systems"
+              description="Developed Python automation scripts and managed database systems"
               details={[
-                "Developed Python automation scripts using Pandas, increasing efficiency by 40%",
-                "Transformed 10,000+ highway technology components into Oracle database",
-                "Created automated ticketing system using Microsoft Power Apps and Power Automate"
+                "Improved data processing efficiency by 40% using Pandas",
+                "Transformed 10,000+ components to Oracle DB",
+                "Automated ticket management with Power Apps"
               ]}
             />
             <Card 
               icon={Landmark}
               title="CIBC"
               subtitle="Information Security Coordinator | May 2022 - Sept 2022"
-              description="Managed security assessments and risk analysis"
+              description="Managed security assessments and risk mitigation"
               details={[
-                "Worked on deviation cases for deals over $500,000",
-                "Performed security assessments and risk analysis",
-                "Handled 50+ security deviation cases for CIBC's clientele"
+                "Analyzed transactions over $500,000",
+                "Performed vulnerability assessments",
+                "Enhanced transaction security for 11M+ clients"
               ]}
             />
             <Card 
               icon={Code}
-              title="Raf's Solutions"
+              title="Raf’s Solutions"
               subtitle="Freelance Web Developer | Sept 2021 - Present"
-              description="Full-stack web development for various clients"
+              description="Developed and deployed full-stack web solutions"
               details={[
-                "Developed responsive website for Islamic preschool using Next.js and React",
-                "Integrated AWS for secure student registration",
-                "Collaborated with administrators to enhance site features and performance"
+                "Built apps with React.js and Angular",
+                "Deployed solutions on AWS",
+                "Optimized backend systems with Spring Framework"
               ]}
             />
           </div>
@@ -296,59 +308,47 @@ function App() {
               icon={Car}
               title="DrivingMan"
               subtitle="Founder & Developer | April 2024 - Present"
-              description="Web platform for manual driving lessons business"
+              description="Web platform for manual driving lessons"
               url="https://drivingman.ca"
               details={[
-                "Built with React.js and Tailwind CSS",
-                "Integrated Acuity for scheduling and Formspree for contact management",
-                "Optimized for mobile-first interaction and SEO",
+                "Developed using React.js and Tailwind CSS",
+                "Integrated AWS Lambda for operations",
+                "Optimized backend with Spring Boot"
               ]}
             />
             <Card
               icon={Flag}
               title="F1 Race Predictor"
-              subtitle="AI Project | June 2024 - Present"
-              description="Machine learning-based F1 race prediction platform"
+              subtitle="AI Project | August 2024 - Present"
+              description="Machine learning platform for race predictions"
               url="https://f1racepredictorapp.com"
               details={[
-                "Built with React.js, Tailwind CSS, and Flask backend",
-                "Implemented ML model using Python, Scikit-learn, and Pandas",
-                "Real-time race data integration and predictions",
+                "ML model with Scikit-learn",
+                "Frontend with Angular and TypeScript",
+                "Real-time API integration with Spring Boot"
               ]}
             />
             <Card
               icon={Book}
               title="Jana Academy"
-              subtitle="Freelance Project | Feb 2024 - Present"
-              description="Responsive website for an Islamic school emphasizing academic excellence."
+              subtitle="Freelance Project | February 2024 - Present"
+              description="Responsive multilingual website for an Islamic school."
               url="https://janaacademy.ca"
               details={[
-                "Built with HTML5 and CSS3",
-                "Multilingual support for Arabic and English",
-                "Optimized for responsiveness and user engagement",
+                "HTML5 and CSS3 implementation",
+                "Supports Arabic and English",
+                "Focus on engagement and usability"
               ]}
             />
           </div>
         </Section>
-
-        {/* <Section title="3D Model Showcase">
-          <div className="bg-white/10 p-6 rounded-lg shadow-lg backdrop-blur-sm">
-            <h3 className="text-lg font-semibold text-blue-300 mb-4">Interactive 3D Model</h3>
-            <Suspense fallback={<div>Loading 3D model...</div>}>
-              <ModelViewer modelUrl="rafik3d.glb" />
-            </Suspense>
-            <p className="mt-4 text-gray-300 text-sm">
-              This is an interactive 3D model created using Meshy. You can rotate and zoom the model using your mouse or touch gestures.
-            </p>
-          </div>
-        </Section> */}
 
         <Section title="Education">
           <Card 
             icon={School}
             title="Bachelor of Engineering - Software Engineering"
             subtitle="McMaster University | Expected Graduation: April 2025"
-            description="Fourth Year Software Engineering Student"
+            description="Fourth Year Software Engineering Student with a cumulative GPA of 3.5/4.0."
           />
         </Section>
 
@@ -358,7 +358,7 @@ function App() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xl mb-8">Interested in working together? Let's connect!</p>
+            <p className="text-xl mb-8">Interested in collaborating? Let's connect!</p>
             <motion.a
               href="mailto:rafiksalam81@gmail.com"
               className="inline-flex items-center px-8 py-3 bg-blue-500 text-white rounded-full font-bold text-lg"
@@ -385,9 +385,6 @@ function App() {
       </motion.div>
     </div>
   );
-  
 }
 
-
 export default App;
-
