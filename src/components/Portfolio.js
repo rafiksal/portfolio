@@ -5,6 +5,7 @@ import rafikImage from './rafik.JPG';
 
 const ModelViewer = lazy(() => import('./ModelViewer'));
 
+
 const Section = ({ children, title, className = '' }) => (
   <motion.section
     className={`py-16 ${className}`}

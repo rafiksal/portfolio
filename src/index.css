@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,4 +10,73 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Dark mode scrollbar */
+.dark-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-mode::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark-mode::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 5px;
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Light mode scrollbar */
+.light-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+.light-mode::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+.light-mode::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 5px;
+}
+
+.light-mode::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Light mode specific styles */
+.light-mode .bg-white {
+  background-color: #f0f7ff !important;
+}
+
+.light-mode .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Fix for flickering components */
+.dark-mode, .light-mode {
+  transition: background-color 0.5s ease;
+}
+
+/* Ensure consistent background colors */
+.dark-mode .bg-blue-50 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.light-mode .bg-white\/10 {
+  background-color: #f0f7ff !important;
 }
