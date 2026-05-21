@@ -5,8 +5,10 @@ const TerminalInterface = ({ onAccessGranted }) => {
   const [currentPath, setCurrentPath] = useState('/home/visitor');
   const [commandHistory, setCommandHistory] = useState([]);
   const [currentCommand, setCurrentCommand] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [terminalOutput, setTerminalOutput] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [isTyping, setIsTyping] = useState(false);
   const inputRef = useRef(null);
 
@@ -384,6 +386,7 @@ Or explore the system with 'ls' to find the password file!
 visitor@cybersec-portfolio:${currentPath}$ `;
     
     setTerminalOutput([welcomeMessage]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
