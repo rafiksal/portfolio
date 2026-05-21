@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\\\\\\\Users\\\\\\\\rafik\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\portfolio-new\\\\\\\\public\")",
+      "Bash(ls -la \"C:\\\\\\\\Users\\\\\\\\rafik\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\portfolio-new\\\\\\\\src\")"
+    ]
+  }
+}
