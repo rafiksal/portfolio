@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "env": {
     "DISABLE_ESLINT_PLUGIN": "true"
   },
