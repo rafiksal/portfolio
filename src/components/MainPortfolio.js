@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUpRight, ChevronDown } from 'lucide-react';
 import rafikImage from '../rafik.JPG';
+import { PROJECTS } from '../data/projects';
+import { EASE, scrollTo, Reveal, SectionTitle, IslandButton, SpotlightCard, GlowBackdrop } from './ui';
 
 /* ── Data ─────────────────────────────────────────────────────────────────── */
 
@@ -86,57 +89,6 @@ const EXPERIENCE = [
   },
 ];
 
-const PROJECTS = [
-  {
-    title: 'DrivingMan.ca', domain: 'Full-Stack',
-    period: '2024 - Present', status: 'live',
-    tech: ['React.js', 'Tailwind CSS', 'AWS Lambda', 'Spring Boot'],
-    description: 'Founded and built a mobile-first driving lesson booking platform with scheduling, payments, and notifications. Reached 1,000+ users within 2 months of launch.',
-    github: null, live: 'https://drivingman.ca',
-    featured: true,
-  },
-  {
-    title: 'F1 Race Outcome Predictor', domain: 'AI/ML',
-    period: '2026 - Present', status: 'active',
-    tech: ['Python', 'scikit-learn', 'OpenF1 API', 'React.js'],
-    description: 'End-to-end ML pipeline ingesting historical F1 race data via the OpenF1 API. Random Forest classifier with feature engineering, hyperparameter tuning, and a data ingestion layer that profiles and cleans raw API responses.',
-    github: null, live: null,
-    featured: false,
-  },
-  {
-    title: 'Network Security Monitor', domain: 'Security',
-    period: '2025', status: 'complete',
-    tech: ['Python', 'Wireshark', 'ML'],
-    description: 'Real-time packet capture and analysis tool with ML-based anomaly detection and a web interface for network traffic monitoring.',
-    github: 'https://github.com/rafiksalam/network-monitor', live: null,
-    featured: false,
-  },
-  {
-    title: 'Motive App', domain: 'Full-Stack',
-    period: '2024', status: 'complete',
-    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'WebSocket'],
-    description: 'Full-stack event coordination platform with real-time WebSocket features, ticket payments, an admin analytics dashboard, and role-based access control.',
-    github: null, live: null,
-    featured: false,
-  },
-  {
-    title: 'Enterprise Security Framework', domain: 'Security',
-    period: '2025', status: 'complete',
-    tech: ['NIST CSF', 'ISO 27001', 'Python'],
-    description: 'NIST CSF-aligned risk assessment framework with automated TRA templates, vendor risk workflows, and a compliance dashboard.',
-    github: 'https://github.com/rafiksalam/enterprise-risk-framework', live: null,
-    featured: false,
-  },
-  {
-    title: 'Smart Fire Detection System', domain: 'Data',
-    period: '2024', status: 'complete',
-    tech: ['Next.js', 'React.js', 'IoT Sensors'],
-    description: 'IoT-based fire detection system with real-time sensor data visualization and automated email and mobile alerts. Built as a capstone project.',
-    github: null, live: null,
-    featured: false,
-  },
-];
-
 const EDUCATION = [
   {
     school: 'University of Guelph',
@@ -168,88 +120,6 @@ const TICKER_SKILLS = [
 
 const NAV_LINKS = ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'];
 const PROJECT_FILTERS = ['All', 'AI/ML', 'Full-Stack', 'Data', 'Security'];
-
-/* ── Shared helpers ───────────────────────────────────────────────────────── */
-
-const EASE = [0.32, 0.72, 0, 1];
-
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// Heavy fade-up on viewport entry, shared by every section
-function Reveal({ children, delay = 0, className = '' }) {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, delay, ease: EASE }}>
-      {children}
-    </motion.div>
-  );
-}
-
-function SectionTitle({ children, className = '' }) {
-  return (
-    <h2 className={`font-display font-semibold text-4xl md:text-6xl tracking-tight text-zinc-100 ${className}`}
-      style={{ textWrap: 'balance' }}>
-      {children}
-    </h2>
-  );
-}
-
-// Primary CTA: pill with the arrow nested in its own circular island
-function IslandButton({ children, onClick, href }) {
-  const cls = 'group inline-flex items-center gap-3 rounded-full bg-emerald-400 pl-6 pr-2 py-2 text-sm font-bold text-zinc-950 transition-transform duration-300 ease-out-expo hover:scale-[1.02] active:scale-[0.98]';
-  const inner = (
-    <>
-      <span>{children}</span>
-      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-950/15 transition-transform duration-300 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-        <ArrowUpRight size={15} strokeWidth={2} />
-      </span>
-    </>
-  );
-  return href
-    ? <a href={href} className={cls}>{inner}</a>
-    : <button onClick={onClick} className={cls}>{inner}</button>;
-}
-
-// Card with a cursor-tracking spotlight border. Writes CSS vars directly on the
-// node (no React state) so hover tracking never re-renders the tree.
-function SpotlightCard({ children, className = '' }) {
-  const ref = useRef(null);
-  const onMove = (e) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    el.style.setProperty('--mx', `${e.clientX - r.left}px`);
-    el.style.setProperty('--my', `${e.clientY - r.top}px`);
-  };
-  return (
-    <div ref={ref} onMouseMove={onMove}
-      className={`group relative rounded-[1.5rem] border border-white/10 bg-white/[0.03] ${className}`}>
-      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[1.5rem] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{ background: 'radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(52,211,153,0.08), transparent 60%)' }} />
-      {children}
-    </div>
-  );
-}
-
-/* ── Ambient backdrop ─────────────────────────────────────────────────────── */
-
-function GlowBackdrop() {
-  return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
-      <div className="absolute -top-40 left-1/4 h-[36rem] w-[36rem] rounded-full opacity-25"
-        style={{ background: 'radial-gradient(circle, rgba(52,211,153,0.16), transparent 65%)' }} />
-      <div className="absolute top-[60%] -right-40 h-[30rem] w-[30rem] rounded-full opacity-20"
-        style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.08), transparent 65%)' }} />
-    </div>
-  );
-}
 
 /* ── Navbar: floating glass pill ──────────────────────────────────────────── */
 
@@ -606,7 +476,7 @@ function Experience() {
   );
 }
 
-/* ── Projects: featured asymmetric grid ───────────────────────────────────── */
+/* ── Projects: featured asymmetric grid, cards link to case studies ───────── */
 
 function Projects() {
   const [filter, setFilter] = useState('All');
@@ -637,16 +507,20 @@ function Projects() {
 
         <motion.div layout className="grid gap-4 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {filtered.map((proj, i) => (
+            {filtered.map(proj => (
               <motion.div key={proj.title} layout
                 initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }} transition={{ duration: 0.4, ease: EASE }}
                 className={proj.featured && filter === 'All' ? 'md:col-span-2' : ''}>
                 <SpotlightCard className="h-full">
                   <div className="relative flex h-full flex-col p-7 md:p-9">
+                    {/* Whole card links to the case study; external links sit above it */}
+                    <Link to={`/projects/${proj.slug}`} aria-label={`${proj.title} case study`}
+                      className="absolute inset-0 rounded-[1.5rem]" />
+
                     <div className="mb-5 flex items-start justify-between gap-4">
                       <span className="font-mono text-xs text-zinc-500">{proj.domain}</span>
-                      <div className="flex items-center gap-3">
+                      <div className="relative z-10 flex items-center gap-3">
                         {proj.status === 'live' && (
                           <span className="flex items-center gap-1.5 font-mono text-xs text-emerald-400">
                             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />live
@@ -675,12 +549,19 @@ function Projects() {
                     </h3>
                     <p className="mt-3 max-w-2xl flex-1 leading-relaxed text-zinc-400">{proj.description}</p>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {proj.tech.map(t => (
-                        <span key={t} className="rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-zinc-400">
-                          {t}
-                        </span>
-                      ))}
+                    <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex flex-wrap gap-2">
+                        {proj.tech.map(t => (
+                          <span key={t} className="rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-zinc-400">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="flex items-center gap-1.5 font-mono text-xs text-zinc-500 transition-colors duration-300 group-hover:text-emerald-400">
+                        case study
+                        <ArrowUpRight size={13} strokeWidth={1.5}
+                          className="transition-transform duration-300 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
                     </div>
                   </div>
                 </SpotlightCard>

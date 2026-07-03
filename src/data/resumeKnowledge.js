@@ -65,6 +65,21 @@ const chunks = [
     text: "Raf's Web Solutions. Role: Freelance Full-Stack Developer. September 2021 – Present. Delivered 20+ client web applications using React, Next.js, and Tailwind CSS. Built responsive, performance-optimized frontends with REST API integrations for small businesses.",
   },
   {
+    id: 'proj-careguard',
+    keywords: ['careguard', 'healthcare', 'co-pilot', 'copilot', 'guelph', 'research', 'risk scoring', 'risk-scoring', 'playbook', 'flask', 'llm', 'ransomware', 'phishing', 'medical device', 'graduate', 'pitch', 'clinic'],
+    text: 'CareGuard AI (January 2026 – Present, graduate research project at the University of Guelph). Technologies: Python, Flask, LLM, NIST CSF, ISO 27001. Rafik was selected by a professor from the graduate cybersecurity cohort to lead the design, development, and pitch of CareGuard AI, an AI-driven cybersecurity co-pilot for under-resourced healthcare environments. Built a risk-scoring engine producing NIST CSF and ISO 27001 aligned Low/Medium/High ratings across network configuration, backup practices, and user awareness exposure. Developed adaptive incident response playbooks for ransomware, phishing, and medical device compromise, dynamically generated based on organizational risk profile. Prototyped a Flask and LLM-based assistant delivering real-time incident guidance, simulating a SOC co-pilot for non-technical healthcare staff.',
+  },
+  {
+    id: 'proj-soc-lab',
+    keywords: ['soc', 'siem', 'splunk', 'sigma', 'mitre', 'att&ck', 'attack', 'triage', 'ioc', 'cve', 'detection', 'incident response', 'globalprotect', 'palo alto', 'picerl', 'analyst', 'alert', 'log'],
+    text: 'SOC Detection and Incident Triage Lab (January 2026 – May 2026, completed). Technologies: Splunk, Sigma, MITRE ATT&CK, Python. Built a SIEM-based detection environment using Splunk to analyze system logs and network traffic, triaging security alerts and validating indicators of compromise (IOCs) aligned with SOC analyst workflows. Authored Sigma detection rules mapped to MITRE ATT&CK techniques for CVE-2026-0257 (Palo Alto GlobalProtect authentication bypass), reducing false-positive alert volume and improving detection precision. Developed a structured incident response playbook covering triage steps, severity classification, escalation criteria, and audit-ready documentation aligned with NIST IR and SANS PICERL. Automated log parsing and multi-source IOC correlation using Python scripting to accelerate alert investigation and reduce manual analysis time.',
+  },
+  {
+    id: 'proj-stride',
+    keywords: ['stride', 'fitness', 'gym', 'social', 'leaderboard', 'badge', 'socket', 'socket.io', 'realtime', 'real-time', 'check-in', 'checkin', 'express', 'postgresql', 'pub/sub'],
+    text: 'Stride, a social fitness platform (April 2026 – Present, active project). Technologies: React, Node.js, Express, PostgreSQL, Socket.io. Built a Node.js / Express backend with REST APIs handling real-time gym check-ins, leaderboard updates, and badge logic across concurrent users. Implemented real-time event-driven communication via Socket.io, applying pub/sub patterns with distributed architectures. Designed a PostgreSQL schema for user activity and leaderboard data, optimized for low-latency reads under concurrent load.',
+  },
+  {
     id: 'proj-f1',
     keywords: ['f1', 'formula', 'race', 'predictor', 'random forest', 'classifier', 'openf1', 'racing', 'sport', 'prediction', 'formula one'],
     text: 'F1 Race Outcome Predictor (April 2026 – Present, active project). Technologies: Python, scikit-learn, OpenF1 API, React.js. Built an end-to-end ML pipeline that ingests historical race data from the OpenF1 API, applying preprocessing, feature engineering, and normalization to prepare model-ready datasets. Trained and validated a Random Forest classifier to predict race outcomes, iterating on feature selection and hyperparameter tuning. Implemented a data ingestion layer to profile and clean raw API responses, handling missing values and inconsistencies before feeding data into the model pipeline.',
