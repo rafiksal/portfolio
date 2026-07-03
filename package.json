@@ -23,8 +23,10 @@
     "three": "^0.168.0",
     "web-vitals": "^2.1.4"
   },
+  "proxy": "http://localhost:3999",
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
+    "dev:api": "node scripts/dev-api.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

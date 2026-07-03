@@ -1,5 +1,11 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
+// gemini-1.5-flash was retired by Google; try current models in order
+const MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash'];
+
+const SYSTEM_INSTRUCTION =
+  "You are a helpful assistant answering questions about Rafik Manla Hassan based on his resume. Be concise, warm, and professional. Refer to Rafik in the third person. Only use the provided resume context. If something isn't covered, say so honestly.";
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -22,21 +28,23 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Missing question or context' });
   }
 
-  try {
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash',
-      systemInstruction:
-        "You are a helpful assistant answering questions about Rafik Manla Hassan based on his resume. Be concise, warm, and professional. Refer to Rafik in the third person. Only use the provided resume context — if something isn't covered, say so honestly.",
-    });
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  const prompt = `Resume context:\n${context}\n\nQuestion: ${question}`;
 
-    const result = await model.generateContent(
-      `Resume context:\n${context}\n\nQuestion: ${question}`
-    );
-
-    return res.status(200).json({ answer: result.response.text() });
-  } catch (err) {
-    console.error('Gemini error:', err.message);
-    return res.status(500).json({ error: err.message });
+  let lastError;
+  for (const modelName of MODELS) {
+    try {
+      const model = genAI.getGenerativeModel({
+        model: modelName,
+        systemInstruction: SYSTEM_INSTRUCTION,
+      });
+      const result = await model.generateContent(prompt);
+      return res.status(200).json({ answer: result.response.text() });
+    } catch (err) {
+      lastError = err;
+      console.error(`Gemini error (${modelName}):`, err.message);
+    }
   }
+
+  return res.status(500).json({ error: lastError?.message || 'Generation failed' });
 };

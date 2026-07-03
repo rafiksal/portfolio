@@ -11,6 +11,11 @@
 # production
 /build
 
+# agent skill tooling (local dev aids, not site code)
+/.agents
+/.claude
+skills-lock.json
+
 # misc
 .DS_Store
 .env.local

@@ -5,22 +5,28 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Clash Display', 'system-ui', 'sans-serif'],
+        sans: ['Satoshi', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       colors: {
-        'neon-blue': '#4DEEEA',
-        'deep-purple': '#2A0E61',
+        base: {
+          950: '#09090b',
+          900: '#101013',
+          850: '#16161a',
+        },
       },
       keyframes: {
-        blob: {
-          '0%':   { transform: 'translate(0px, 0px) scale(1)' },
-          '33%':  { transform: 'translate(30px, -50px) scale(1.1)' },
-          '66%':  { transform: 'translate(-20px, 20px) scale(0.9)' },
-          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        marquee: {
+          '0%':   { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        blob: 'blob 7s infinite',
+        marquee: 'marquee 48s linear infinite',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.32, 0.72, 0, 1)',
       },
     },
   },

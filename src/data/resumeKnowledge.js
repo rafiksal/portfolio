@@ -26,8 +26,8 @@ const chunks = [
   },
   {
     id: 'skills-cloud',
-    keywords: ['cloud', 'aws', 'docker', 'github actions', 'ci/cd', 'devops', 'pipeline', 'deploy', 'skill'],
-    text: 'Cloud & DevOps: AWS, Docker, GitHub Actions, CI/CD Pipelines.',
+    keywords: ['cloud', 'aws', 'gcp', 'cloud run', 'docker', 'github actions', 'ci/cd', 'devops', 'pipeline', 'deploy', 'skill'],
+    text: 'Cloud & DevOps: AWS, GCP (Cloud Run), Docker, GitHub Actions, CI/CD Pipelines.',
   },
   {
     id: 'skills-databases',
@@ -40,9 +40,14 @@ const chunks = [
     text: 'Practices: Agile/Scrum, version control (Git), code reviews, unit testing, REST API design.',
   },
   {
+    id: 'exp-fdm',
+    keywords: ['fdm', 'fdm group', 'consultant', 'microservices', 'spring boot', 'java', 'cryptochain', 'jwt', 'gcp', 'cloud run', 'junit', 'mockito', 'tdd', 'solid', 'current', 'now', 'latest', 'job', 'recent'],
+    text: 'FDM Group, Toronto ON. Role: Software Engineering Consultant. January 2026 – Present (most recent role). Built and deployed Java / Spring Boot microservices in a cross-functional team (BAs, QA, DevOps, SREs), owning features from design through production deployment with a focus on availability and observability. Engineered REST APIs and service integrations for Cryptochain, a financial services platform, using Spring Data JPA, JWT auth, and PostgreSQL, supporting 100% uptime across sprint releases. Containerized services with Docker and contributed to CI/CD pipelines via GitHub Actions and GCP Cloud Run, cutting deployment time by ~35% and eliminating manual environment inconsistencies. Applied JUnit/Mockito TDD, Java concurrency, and SOLID principles across all services, achieving 85%+ test coverage and reducing production defects between sprint cycles.',
+  },
+  {
     id: 'exp-tomatoes',
     keywords: ['tomatoes', 'bazar', 'ai engineer', 'operations', 'demand forecasting', 'sku', 'classification', 'inventory', 'current', 'now', 'latest', 'job', 'recent'],
-    text: 'Tomatoes Bazar, Milton ON. Role: AI Engineer and Operations Lead. July 2025 – Present (current role). Built an end-to-end demand forecasting pipeline in Python using scikit-learn, covering feature engineering, normalization, and train/test splitting across 200+ SKUs. Automated data quality checks using pandas to profile inventory datasets, detect anomalous stock movements, and flag inconsistencies before they reached reporting layers. Implemented and validated a SKU classification model, iterating on encoding strategies and normalization to improve accuracy across seasonal product categories.',
+    text: 'Tomatoes Bazar, Milton ON. Role: AI Engineer and Operations Lead. July 2025 – Present. Built an end-to-end demand forecasting pipeline in Python using scikit-learn, covering feature engineering, normalization, and train/test splitting across 200+ SKUs. Automated data quality checks using pandas to profile inventory datasets, detect anomalous stock movements, and flag inconsistencies before they reached reporting layers. Implemented and validated a SKU classification model, iterating on encoding strategies and normalization to improve accuracy across seasonal product categories.',
   },
   {
     id: 'exp-mto',
