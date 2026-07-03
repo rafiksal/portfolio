@@ -5,6 +5,12 @@ import { retrieveContext } from '../data/resumeKnowledge';
 
 const EASE = [0.32, 0.72, 0, 1];
 
+// GitHub Pages is static-only, so route chat calls to the Vercel API there.
+// On Vercel and local dev the relative path hits the serverless function/proxy.
+const API_BASE = window.location.hostname.endsWith('github.io')
+  ? 'https://portfolio-u1ij.vercel.app'
+  : '';
+
 const SUGGESTIONS = [
   "What's Rafik's ML experience?",
   'What projects has he built?',
@@ -55,7 +61,7 @@ export default function ChatWidget({ isOpen, onOpen, onClose }) {
 
     try {
       const context = retrieveContext(q);
-      const res = await fetch('/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: q, context }),
