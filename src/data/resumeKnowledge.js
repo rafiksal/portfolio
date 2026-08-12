@@ -41,8 +41,8 @@ const chunks = [
   },
   {
     id: 'exp-fdm',
-    keywords: ['fdm', 'fdm group', 'consultant', 'microservices', 'spring boot', 'java', 'cryptochain', 'jwt', 'gcp', 'cloud run', 'junit', 'mockito', 'tdd', 'solid', 'current', 'now', 'latest', 'job', 'recent'],
-    text: 'FDM Group, Toronto ON. Role: Software Engineering Consultant. January 2026 – Present (most recent role). Built and deployed Java / Spring Boot microservices in a cross-functional team (BAs, QA, DevOps, SREs), owning features from design through production deployment with a focus on availability and observability. Engineered REST APIs and service integrations for Cryptochain, a financial services platform, using Spring Data JPA, JWT auth, and PostgreSQL, supporting 100% uptime across sprint releases. Containerized services with Docker and contributed to CI/CD pipelines via GitHub Actions and GCP Cloud Run, cutting deployment time by ~35% and eliminating manual environment inconsistencies. Applied JUnit/Mockito TDD, Java concurrency, and SOLID principles across all services, achieving 85%+ test coverage and reducing production defects between sprint cycles.',
+    keywords: ['fdm', 'fdm group', 'consultant', 'microservices', 'spring boot', 'java', 'cryptochain', 'jwt', 'gcp', 'cloud run', 'junit', 'mockito', 'tdd', 'solid', 'fp&a', 'fpna', 'dashboard', 'sql', 'excel', 'variance', 'forecasting', 'reporting', 'stakeholder', 'data model', 'current', 'now', 'latest', 'job', 'recent'],
+    text: 'FDM Group, Toronto ON. Role: Software Engineering Consultant. January 2026 – Present (most recent role). Built and deployed Java / Spring Boot microservices in a cross-functional team (BAs, QA, DevOps, SREs), owning features from design through production deployment with a focus on availability and observability. Engineered REST APIs and service integrations for Cryptochain, a financial services platform, using Spring Data JPA, JWT auth, and PostgreSQL, supporting 100% uptime across sprint releases. Built 4+ FP&A reporting dashboards and financial data models in SQL and Excel, powering variance analysis, forecasting, and stakeholder reporting for a financial services platform. Configured and maintained 3+ data models and system integrations in a regulated financial services environment, turning business requirements into structured, reusable components. Containerized services with Docker and contributed to CI/CD pipelines via GitHub Actions and GCP Cloud Run, cutting deployment time by ~35% and eliminating manual environment inconsistencies. Applied JUnit/Mockito TDD, Java concurrency, and SOLID principles across all services, achieving 85%+ test coverage and reducing production defects between sprint cycles.',
   },
   {
     id: 'exp-tomatoes',
@@ -63,6 +63,16 @@ const chunks = [
     id: 'exp-freelance',
     keywords: ['freelance', 'web', 'solutions', 'client', 'consultant', 'self-employed', 'web developer', 'business'],
     text: "Raf's Web Solutions. Role: Freelance Full-Stack Developer. September 2021 – Present. Delivered 20+ client web applications using React, Next.js, and Tailwind CSS. Built responsive, performance-optimized frontends with REST API integrations for small businesses.",
+  },
+  {
+    id: 'proj-rightstock',
+    keywords: ['rightstock', 'stock', 'screener', 'fp&a', 'fpna', 'finance', 'financial', 'valuation', 'dcf', 'forecast', 'sec', 'edgar', '10-k', 'xbrl', 'fastapi', 'recharts', 'investing', 'variance', 'wacc', 'balance sheet'],
+    text: 'RightStock (August 2026 – Present, live at rightstock.vercel.app, code at github.com/rafiksalam/rightstock). Technologies: Python, FastAPI, SQLAlchemy, React.js, Recharts, SEC EDGAR API. A stock screener that applies corporate FP&A analysis to public companies. Built an ETL pipeline over the SEC EDGAR XBRL API with a prioritized us-gaap tag-alias map, normalizing up to 19 years of 10-K income statement, balance sheet, and cash flow data per company into a Postgres-ready SQLAlchemy schema. Implemented trend and variance analysis (YoY growth, margin bridges in basis points, CAGR), driver-based three-statement forecasting with defaults derived from each company\'s own history, and a DCF engine using CAPM-based WACC and Gordon terminal value that also reverse-engineers the revenue growth rate implied by the current market cap, flagging when the market prices in growth above historical CAGR. Includes a balance-sheet health scorecard (debt/equity, current ratio, interest coverage, net debt/EBITDA, FCF trend) and a watchlist that generates alerts on margin compression, rising leverage, and valuation flips between data refreshes. Deployed with the React + Recharts dashboard on Vercel and the FastAPI backend on Render.',
+  },
+  {
+    id: 'proj-the-tab',
+    keywords: ['tab', 'the tab', 'bill', 'split', 'splitting', 'expense', 'ios', 'app store', 'mobile', 'react native', 'expo', 'roommate', 'group', 'settle', 'owes'],
+    text: 'The Tab (2026, live on the iOS App Store). Technologies: React Native, Expo. A native iOS app that makes splitting shared expenses simple: create a group, add a bill, and it calculates who owes what and to whom, removing the awkward math and back-and-forth of splitting costs among friends, roommates, or travel groups. Gained roughly 30 users through organic word-of-mouth since launch. Download: https://apps.apple.com/us/app/the-tab-split-bills-settle/id6788280070',
   },
   {
     id: 'proj-careguard',

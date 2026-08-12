@@ -93,7 +93,7 @@ export default function ProjectPage({ onChatOpen }) {
           {(project.live || project.github) && (
             <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-5">
               {project.live && (
-                <IslandButton href={project.live} external>Visit live site</IslandButton>
+                <IslandButton href={project.live} external>{project.liveLabel || 'Visit live site'}</IslandButton>
               )}
               {project.github && (
                 <a href={project.github} target="_blank" rel="noreferrer"

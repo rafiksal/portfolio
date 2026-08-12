@@ -48,6 +48,8 @@ const EXPERIENCE = [
     bullets: [
       'Built and deployed Java / Spring Boot microservices in a cross-functional team of BAs, QA, DevOps, and SREs, owning features from design through production deployment with a focus on availability and observability',
       'Engineered REST APIs and service integrations for Cryptochain, a financial services platform, using Spring Data JPA, JWT auth, and PostgreSQL, supporting 100% uptime across sprint releases',
+      'Built 4+ FP&A reporting dashboards and financial data models in SQL and Excel, powering variance analysis, forecasting, and stakeholder reporting for a financial services platform',
+      'Configured and maintained 3+ data models and system integrations in a regulated financial services environment, turning business requirements into structured, reusable components',
       'Containerized services with Docker and contributed to CI/CD pipelines via GitHub Actions and GCP Cloud Run, cutting deployment time by ~35% and eliminating manual environment inconsistencies',
       'Applied JUnit/Mockito TDD, Java concurrency, and SOLID principles across all services, achieving 85%+ test coverage and reducing production defects between sprint cycles',
     ],
@@ -119,7 +121,7 @@ const TICKER_SKILLS = [
 ];
 
 const NAV_LINKS = ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'];
-const PROJECT_FILTERS = ['All', 'AI/ML', 'Full-Stack', 'Data', 'Security'];
+const PROJECT_FILTERS = ['All', 'AI/ML', 'Full-Stack', 'Mobile', 'Data', 'Security'];
 
 /* ── Navbar: floating glass pill ──────────────────────────────────────────── */
 
