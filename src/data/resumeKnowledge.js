@@ -6,8 +6,8 @@ const chunks = [
   },
   {
     id: 'summary',
-    keywords: ['summary', 'background', 'overview', 'about', 'who', 'experience', 'engineer', 'profile'],
-    text: "Rafik is a Software Engineering graduate and Master's candidate in Cybersecurity and Threat Intelligence. He has hands-on experience building and deploying ML pipelines, data preprocessing workflows, and AI-integrated backend systems. Proficient in Python, scikit-learn, and pandas, with a track record of delivering data quality improvements and model-driven solutions in production environments. Comfortable collaborating with cross-functional teams, writing maintainable tested code, and applying emerging AI/ML techniques to real operational problems.",
+    keywords: ['summary', 'background', 'overview', 'about', 'who', 'experience', 'engineer', 'profile', 'finance', 'fp&a', 'fintech'],
+    text: "Rafik is a Software Engineering graduate and Master's candidate in Cybersecurity and Threat Intelligence, with a strong footing in finance technology. Much of his work sits at the intersection of software and finance: FP&A reporting dashboards and financial data models in SQL and Excel at FDM Group, backend services for the Cryptochain financial services platform, security risk work at CIBC, and RightStock — a stock analysis platform he built that applies FP&A methods (variance analysis, forecasting, DCF valuation) to SEC filing data. He also has hands-on experience building and deploying ML pipelines, data preprocessing workflows, and AI-integrated backend systems, and is proficient in Python, SQL, scikit-learn, and pandas. Comfortable collaborating with cross-functional teams, gathering requirements from stakeholders, writing maintainable tested code, and applying emerging AI/ML techniques to real operational problems.",
   },
   {
     id: 'skills-languages',
@@ -33,6 +33,11 @@ const chunks = [
     id: 'skills-databases',
     keywords: ['database', 'sql', 'postgresql', 'mongodb', 'ms sql', 'nosql', 'skill', 'storage'],
     text: 'Databases: PostgreSQL, MongoDB, MS SQL Server.',
+  },
+  {
+    id: 'skills-finance',
+    keywords: ['finance', 'fp&a', 'fpna', 'financial', 'excel', 'variance', 'forecasting', 'budgeting', 'valuation', 'dcf', 'etl', 'data model', 'data modeling', 'data integration', 'reporting', 'vena', 'planning', 'skill'],
+    text: 'Finance & FP&A Skills: Financial data modeling in SQL and Excel, FP&A reporting dashboards, variance analysis, driver-based forecasting, DCF valuation, three-statement modeling, ETL and data integration from source systems (SEC EDGAR XBRL, REST APIs) into normalized database schemas, and stakeholder reporting. Demonstrated at FDM Group (4+ FP&A dashboards for a financial services platform), CIBC (risk assessment in banking), and RightStock (a self-built FP&A stock analysis platform).',
   },
   {
     id: 'skills-practices',

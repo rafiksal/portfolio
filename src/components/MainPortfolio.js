@@ -8,7 +8,7 @@ import { EASE, scrollTo, Reveal, SectionTitle, IslandButton, SpotlightCard, Glow
 
 /* ── Data ─────────────────────────────────────────────────────────────────── */
 
-const ROLES = ['Software Engineer', 'AI/ML Developer', 'Data Engineer', 'Security Researcher'];
+const ROLES = ['Software Engineer', 'AI/ML Developer', 'FP&A Systems Builder', 'Data Engineer', 'Security Researcher'];
 
 const SKILL_CATEGORIES = [
   {
@@ -28,7 +28,7 @@ const SKILL_CATEGORIES = [
   {
     name: 'Data & Cloud',
     blurb: '50 GB a week through PySpark and pandas.',
-    items: ['SQL', 'PySpark', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP Cloud Run', 'Docker', 'GitHub Actions', 'CI/CD', 'Power BI'],
+    items: ['SQL', 'ETL Pipelines', 'PySpark', 'PostgreSQL', 'MongoDB', 'Excel Financial Modeling', 'AWS', 'GCP Cloud Run', 'Docker', 'GitHub Actions', 'CI/CD', 'Power BI'],
     span: 'lg:col-span-5',
     glow: 'radial-gradient(ellipse 80% 60% at 20% 100%, rgba(255,255,255,0.06), transparent)',
   },
